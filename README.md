@@ -1,3 +1,4 @@
+## Musify Project
 This application consists of 3 microservices: three microservices are developed using Spring Boot in Java (usermanager, catalogmanager, paymanager).
 
 ## Local execution
