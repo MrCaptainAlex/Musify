@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: usermanager
+          uri: http://usermanager:1111
+          predicates:
+            - Path=/user/**
+        - id: catalogmanager
+          uri: http://catalogmanager:2222
+          predicates:
+            - Path=/catalog/**
+        - id: paymanager
+          uri: http://paymanager:3333
+          predicates:
+            - Path=/payment/**
+
+
+
+
+

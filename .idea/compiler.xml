@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PaymentManager" />
+        <module name="api-gateway" />
+        <module name="UserManager" />
+        <module name="CatalogManager" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="APIgateway" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="APIgateway" options="-parameters" />
+      <module name="CatalogManager" options="-parameters" />
+      <module name="PaymentManager" options="-parameters" />
+      <module name="UserManager" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+    </option>
+  </component>
+</project>

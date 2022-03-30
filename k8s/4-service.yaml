@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service-db
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: user-service-db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  ports:
+    - port: 1111
+  selector:
+    app: user-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-service-db
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: catalog-service-db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-service
+spec:
+  ports:
+    - port: 2222
+  selector:
+    app: catalog-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pay-service-db
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: pay-service-db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pay-service
+spec:
+  ports:
+    - port: 3333
+  selector:
+    app: pay-service

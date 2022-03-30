@@ -1,0 +1,36 @@
+apiVersion: v1
+data:
+  UM_DATASOURCE_HOST: user-service-db
+  DATASOURCE_PORT: "3306"
+  UM_DATASOURCE_NAME: UserDB
+  DATASOURCE_USER: db_user
+  DATASOURCE_PASSWORD: ale2022
+  MYSQL_DATABASE: UserDB
+kind: ConfigMap
+metadata:
+  name: user-service-db-env-file
+---
+apiVersion: v1
+data:
+  CM_DATASOURCE_HOST: catalog-service-db
+  DATASOURCE_PORT: "3306"
+  CM_DATASOURCE_NAME: CatalogDB
+  DATASOURCE_USER: db_user
+  DATASOURCE_PASSWORD: ale2022
+  MYSQL_DATABASE: CatalogDB
+kind: ConfigMap
+metadata:
+  name: catalog-service-db-env-file
+---
+apiVersion: v1
+data:
+  PM_DATASOURCE_HOST: pay-service-db
+  DATASOURCE_PORT: "3306"
+  PM_DATASOURCE_NAME: PayDB
+  DATASOURCE_USER: db_user
+  DATASOURCE_PASSWORD: ale2022
+  MYSQL_DATABASE: PayDB
+kind: ConfigMap
+metadata:
+  name: pay-service-db-env-file
+

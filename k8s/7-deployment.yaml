@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
+    spec:
+      containers:
+        - name: user-service
+          image: arausa/userimage
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: user-service-db-env-file
+            - configMapRef:
+                name: user-service-env-file
+            - secretRef:
+                name: db-secret-file
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-service
+spec:
+  selector:
+    matchLabels:
+      app: catalog-service
+  template:
+    metadata:
+      labels:
+        app: catalog-service
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
+    spec:
+      containers:
+        - name: catalog-service
+          image: arausa/catalogimage
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: catalog-service-db-env-file
+            - configMapRef:
+                name: catalog-service-env-file
+            - secretRef:
+                name: db-secret-file
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pay-service
+spec:
+  selector:
+    matchLabels:
+      app: pay-service
+  template:
+    metadata:
+      labels:
+        app: pay-service
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
+    spec:
+      containers:
+        - name: pay-service
+          image: arausa/payimage
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: pay-service-db-env-file
+            - configMapRef:
+                name: pay-service-env-file
+            - secretRef:
+                name: db-secret-file
