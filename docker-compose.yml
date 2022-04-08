@@ -157,7 +157,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:4.6.3
     user: "472"
     depends_on:
       - prometheus

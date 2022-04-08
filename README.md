@@ -23,10 +23,18 @@ minikube addons enable ingress
 Apply YAML files
 ```  
 kubectl apply -f k8s
+kubectl create namespace monitoring
+kubectl apply -f prometheus
 ```  
 Images are uploaded in DockerHub
 Using deploy files all images will be downloaded
 
+
+Launch prometheus angrafana dashboard
+```  
+minikube service --namespace=monitoring grafana
+minikube service --namespace=monitoring prometheus
+```  
 ### Demo
 
 ```
